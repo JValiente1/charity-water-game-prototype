@@ -281,6 +281,7 @@ body {
 .game-main {
   flex: 1;
   min-width: 0;
+  min-height: 0;
 }
 
 .brand-header {
@@ -602,7 +603,7 @@ h1 {
   }
 
   .game-grid {
-    width: min(100%, calc(100dvh - 260px));
+    width: min(100%, calc(100dvh - 250px));
     max-width: 440px;
     margin: 0 auto;
     gap: 8px;
@@ -614,6 +615,19 @@ h1 {
 }
 
 @media (max-width: 480px) {
+  .overlay-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  .overlay-card p {
+    font-size: 0.94rem;
+  }
+
+  .keyboard-tip {
+    font-size: 0.86rem;
+  }
+
   .page-header-logo {
     max-height: 40px;
   }
@@ -644,6 +658,47 @@ h1 {
   }
 }
 
+@media (max-width: 380px) {
+  .container {
+    padding: 8px;
+  }
+
+  .page-header-logo {
+    max-height: 34px;
+  }
+
+  .stats {
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .stat-card {
+    min-width: 72px;
+    font-size: 0.69rem;
+    padding: 4px;
+  }
+
+  .achievement {
+    min-height: 28px;
+    font-size: 0.7rem;
+    padding: 5px 6px;
+  }
+
+  .game-grid {
+    width: min(100%, calc(100dvh - 230px));
+    gap: 6px;
+  }
+
+  .grid-cell {
+    border-radius: 12px;
+  }
+
+  .water-can {
+    width: 82%;
+    height: 82%;
+  }
+}
+
 @media (orientation: landscape) and (max-height: 520px) {
   body {
     padding: 0;
@@ -669,11 +724,13 @@ h1 {
   .game-layout {
     gap: 8px;
     flex-direction: row;
+    align-items: stretch;
   }
 
   .game-sidebar {
     width: clamp(150px, 26vw, 220px);
     flex: 0 0 auto;
+    overflow: hidden;
   }
 
   .stats {
@@ -705,6 +762,56 @@ h1 {
 
   .grid-cell {
     border-radius: 10px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 430px) {
+  .container {
+    padding: 4px;
+  }
+
+  .page-header {
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+
+  .page-header-logo {
+    max-height: 28px;
+  }
+
+  .game-layout {
+    gap: 6px;
+  }
+
+  .game-sidebar {
+    width: clamp(132px, 24vw, 190px);
+    gap: 4px;
+  }
+
+  .stats {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .stat-card {
+    flex: 1 1 calc(50% - 4px);
+    font-size: 0.66rem;
+    padding: 4px;
+  }
+
+  .achievement {
+    min-height: 24px;
+    font-size: 0.66rem;
+    padding: 4px 6px;
+  }
+
+  .game-grid {
+    width: min(100%, calc(100dvh - 98px));
+    gap: 5px;
+  }
+
+  .grid-cell {
+    border-radius: 8px;
   }
 }
 
