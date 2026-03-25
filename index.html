@@ -1,13 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Water Quest</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
-    <script src="script.js"></script>
+  <h1>test</h1>
+  <div class="container">
+    <div class="game-overlay is-visible" id="start-overlay" aria-live="polite">
+      <div class="overlay-card">
+        <p class="overlay-eyebrow">charity: water challenge</p>
+        <h2>Water Quest</h2>
+        <p>Reach 20 points in 30 seconds. The pace gets faster, combos boost your score, and misses cost you.</p>
+        <p class="keyboard-tip">Keyboard: press Enter to start, then use Enter or Space to collect each can.</p>
+        <button id="overlay-start-button">Start Quest</button>
+      </div>
+    </div>
+
+    <div class="game-overlay" id="end-overlay" aria-live="polite">
+      <div class="overlay-card">
+        <p class="overlay-eyebrow" id="end-overlay-tag">Round complete</p>
+        <h2 id="end-overlay-title">Quest complete</h2>
+        <p id="end-overlay-message">You can jump back in for another run.</p>
+        <p id="end-overlay-link" class="end-overlay-link is-hidden">Want to help bring clean water to more communities? Visit <a href="https://www.charitywater.org" target="_blank" rel="noopener noreferrer">charitywater.org</a> for more information.</p>
+        <button id="overlay-restart-button">Play Again</button>
+      </div>
+    </div>
+
+    <div class="game-overlay" id="pause-overlay" aria-live="polite">
+      <div class="overlay-card">
+        <p class="overlay-eyebrow">Game Paused</p>
+        <h2>You left the game</h2>
+        <p>The game was paused because you switched tabs or windows.</p>
+        <button id="overlay-resume-button">Resume</button>
+      </div>
+    </div>
+
+    <div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
+    <div class="level-transition" id="level-transition" aria-live="polite"></div>
+
+    <div class="page-header">
+      <img src="img/cw_logo_horizontal.png" alt="charity: water" class="page-header-logo">
+    </div>
+
+    <div class="game-layout">
+      <aside class="game-sidebar">
+        <p class="sidebar-instructions">Collect 20 cans before time runs out. Click each jerry can for +1 point. Missed clicks cost points, and the pace speeds up over 30 seconds.</p>
+        <div class="stats">
+          <p class="stat-card" id="level-card">Level: <span id="level-count">1</span></p>
+          <p class="stat-card" id="score-card">Score: <span id="current-cans">0</span></p>
+          <p class="stat-card" id="goal-card">Goal: <span id="goal-score">20</span></p>
+          <p class="stat-card" id="combo-card">Combo: <span id="combo-count">0</span></p>
+          <p class="stat-card" id="best-card">Best: <span id="best-score">0</span></p>
+          <p class="stat-card" id="timer-card">Time: <span id="timer">30</span>s</p>
+        </div>
+        <div id="achievements" class="achievement" aria-live="polite">Build a streak to earn combo bonus points.</div>
+      </aside>
+      <div class="game-main">
+        <div class="game-grid" aria-label="Water Quest game grid"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
